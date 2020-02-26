@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <img className="poster-img" src={show.image.original} alt={show.name} />
+      <img className="poster-img" src={show.image.original} alt={show.name} data-testid="show-img" />
       <h1>{show.name}</h1>
       {parse(show.summary)}
       <Dropdown

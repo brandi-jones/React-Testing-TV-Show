@@ -558,7 +558,7 @@ test('Episodes render', () => {
     //check episode container renders
     getByTestId('episode-container');
 
-    //see if no episodes rencder first, because we passed in an empty list of episodes
+    //see if no episodes render first, because we passed in an empty list of episodes
     expect(queryAllByTestId('episode-data')).toBeEmpty;
     expect(queryAllByTestId('epsiode-data')).toHaveLength(0)
 

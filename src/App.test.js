@@ -617,9 +617,10 @@ test('App fetches data and renders it (check if season 1-4 shows up)', async () 
 
     const {getByText} = render(<App />);
 
+    //check while fetching data
     getByText(/Fetching data.../i);
 
-
+    // click dropdown, then check that EACH season shows up individually
     await wait(() => {
         userEvent.click(getByText(/Select a season/i));
         getByText(/season 1/i);
@@ -631,3 +632,12 @@ test('App fetches data and renders it (check if season 1-4 shows up)', async () 
 })
 
 //test to make sure the image shows up in home page
+test('App renders and show images renders as well', () => {
+    mockFetchShow.mockResolvedValueOnce(show);
+
+    const {getByText, queryAllByTestId} = render(<App />);
+
+    //check image renders
+    expect(queryAllByTestId("show-img")).toBeInTheDocument;
+
+})
